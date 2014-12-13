@@ -47,7 +47,7 @@ var S = lisp.S, list = lisp.list, consp = lisp.consp, car = lisp.car, cdr = lisp
     repr = lisp.repr, fromLisp = lisp.fromLisp, toLisp = lisp.toLisp;
 var Completion = require("./completion").Completion;
 
-var DEFAULT_SLIME_VERSION = "2012-02-12";
+var DEFAULT_SLIME_VERSION = "2014-11-18";
 var console = { log: function(){} };
 
 // hack for require.resolve("./relative") to work properly.
@@ -118,7 +118,7 @@ Handler.prototype.receive = function receive (message) {
         cont();
       });
     return;
-  case "swank:create-repl":
+  case "swank-repl:create-repl":
     r.result = toLisp(this.executive.createRepl(), ["s:packageName", "s:prompt"]);
     break;
   case "swank:autodoc":
@@ -177,7 +177,7 @@ Handler.prototype.receive = function receive (message) {
     break;
   case "swank:interactive-eval":
   case "swank:interactive-eval-region":
-  case "swank:listener-eval":
+  case "swank-repl:listener-eval":
     if (d.form.args.length != 1) {
       console.log("bad args len for SWANK:LISTENER-EVAL -- %s", d.form.args.length);
       return; // FIXME
