@@ -204,6 +204,7 @@ Handler.prototype.receive = function receive (message) {
     cont();
     return;
   case "swank:simple-completions":
+  case "swank:completions":
     var prefix = d.form.args[0];
     var objStr = fromLisp(prefix, "@");
     console.log("Called " + "swank:simple-completions: " + objStr);
