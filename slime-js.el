@@ -390,10 +390,8 @@ Null prefix argument turns off the mode."
   nil
   " slime-js"
   '(("\C-\M-x"  . slime-js-send-defun)
-    ("\C-c\C-c" . slime-js-send-defun)
-    ;; ("\C-c\C-r" . slime-eval-region)
-    ("\C-c\C-r" . slime-js-send-region)
-    ("\C-c\C-b" . slime-js-send-buffer)
+    ("\C-x\M-r" . slime-js-send-region)
+    ("\C-x\M-b" . slime-js-send-buffer)
     ("\C-c\C-z" . slime-switch-to-output-buffer)))
 
 ;; TBD: dabbrev in repl:
